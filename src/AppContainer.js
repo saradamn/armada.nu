@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar"
 import Jumbotron from "./components/Jumbotron"
 import Content from "./components/Content"
 import Footer from "./components/Footer"
-import GoogleAnalyticsTracker from "./components/GoogleAnalyticsTracker" 
+import GoogleAnalyticsTracker from "./components/GoogleAnalyticsTracker"
 
 
 const AppContainer = (props) => {
@@ -18,11 +18,11 @@ const AppContainer = (props) => {
     let vid = null;
     let loadVideo = (global.window!=undefined);
     if (loadVideo) {
-        vid = window.innerWidth >= 750 ? require('../content/assets/video/film.mp4') : null;
+        vid = window.innerWidth >= 750 ? require('../content/assets/video/film.gif') : null;
     }
     vid = pathname === "/" ? vid : null;
     return (
-  <GoogleAnalyticsTracker params={props.params}> 
+  <GoogleAnalyticsTracker params={props.params}>
   <Container>
     <DefaultHeadMeta />
     <Navbar />

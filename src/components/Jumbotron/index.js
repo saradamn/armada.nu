@@ -83,8 +83,7 @@ class Jumbotron extends React.Component {
 
     render() {
     let image = this.props.image ? ( <img alt="" src={this.props.image}/> ) : null;
-    let video = this.props.video ? (<video autoPlay="true" loop muted>
-            <source src={this.props.video} type="video/mp4"/> </video>) : null;
+    let video = this.props.video ? ( <img alt="" src={this.props.video}/>) : null;
 
     let video_or_image = video ? video : image;
     let header_class = video ? "header-home" : "header-image";
@@ -97,16 +96,16 @@ class Jumbotron extends React.Component {
             <div className={header_class === "header-home" ? "logo-container fixed" : "logo-container"}>
                     <img src={require('../../../content/assets/images/header-images/logo.png')} />
                     <p className="logo-date">THE FAIR 20-21 NOV 2018</p>
-                    {header_class === "header-home" ? 
-                        <div id="scrollarrow" className="scroll-arrow" onMouseEnter={this.mouseEnter} >
+                    {header_class === "header-home" ?
+                        <div id="scrollarrow" className="scroll-arrow" onClick={this.mouseEnter} >
                             <img src="/assets/pil.png" alt="\/"/>
-                        </div> 
+                        </div>
                         : null}
             </div>
             <div className={header_class}>
                 {video_or_image}
             </div>
-            
+
         </div>
     );
 }
@@ -119,6 +118,3 @@ Jumbotron.propTypes = {
 };
 
 export default Jumbotron;
-
-
-
