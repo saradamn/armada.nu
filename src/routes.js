@@ -12,6 +12,7 @@ import Matching from "./layouts/Matching"
 import Plainpage from "./layouts/Plainpage"
 import Recruitmentpage from "./layouts/Recruitmentpage"
 import Contactpage from "./layouts/Contactpage"
+import Coffeepage from "./layouts/Coffeepage"
 import News from "./layouts/News"
 import Events from "./layouts/Events"
 import ExhibitorInfo from "./layouts/ExhibitorInfo"
@@ -32,6 +33,7 @@ const PageContainer = (props) => (
       Aboutpage,
       Matching,
       Contactpage,
+      Coffeepage,
       News,
       Events,
       ExhibitorInfo,
