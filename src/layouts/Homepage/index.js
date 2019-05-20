@@ -1,22 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Partners from '../../components/Partners';
-import NewEvents from "../../components/NewEvents"
-import Page from "../Page"
+// import Partners from '../../components/Partners';
+// import NewEvents from "../../components/NewEvents"
+// import Page from "../Page"
 
-const Homepage = (props) => {
-
-
-
+const Homepage = () => {
 
   return (
     <div>
-    <Page { ...props }>
+    {/* <Page { ...props }>
       <div className="body">
           <NewEvents />
 					<Partners />
       </div>
-    </Page>
+    </Page> */}
       </div>
   )
 }
