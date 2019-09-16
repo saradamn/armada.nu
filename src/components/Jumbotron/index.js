@@ -1,7 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
 import "./jumbotron.scss";
-import {Link} from "react-router"
+// import {Link} from "react-router"
+import ArmadaLogoGreen from '../../../content/assets/armada_round_logo_green.png';
+
 
 var smoothScroll = {
     timer: null,
@@ -107,27 +109,30 @@ class Jumbotron extends React.Component {
 
     let video_or_image = video ? video : image;
     let header_class = video ? "header-home" : "header-image";
+    let intro_text_header = "WHAT IS ";
+    let intro_text_header_green = "THS ARMADA";
+    let intro_text_body = "THS Armada arranges Scandinavia's largest career fair at KTH Royal Institute of Technology. Every year, more than 12,000 of Sweden's top engineering and architectural students flock to visit the fair to meet their future employers. Each year ";
+    let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact";
 
     /*
      * The date here is hardcoded because there is no api that gives the dates as answer.
      **/
     return (
         <div id={"header"}>
-            <div className={header_class === "header-home" ? "logo-container fixed" : "logo-container"}>
-                    <img src={require('../../../content/assets/images/header-images/logo.png')} />
-                    <p className="logo-date">THE FAIR 19-20 NOV 2019</p>
-                    {header_class === "header-home" ? 
-                    <div className="buttoncontainer">
-                        <Link to='/exhibitor_info' id="buttonleft" className="homepagebutton"><span>Information for companies</span></Link>
-                        <Link to='/about' id="buttonright" className="homepagebutton"><span>Learn more about Armada</span></Link>
-                    </div>
-
-                        : null}
-            </div>
             <div className={header_class}>
                 {video_or_image}
+                {header_class === "header-home" ? 
+                <div className='about-text-primary-container'>
+                    <div className='about-text-width-container'>
+                        <p className='about-text-header' >
+                            {intro_text_header}<span>{intro_text_header_green}</span>
+                        </p>
+                        <p className='about-text-body'>
+                            {intro_text_body}<span>{intro_text_body_green}</span>
+                        </p>
+                    </div>
+                </div> : null}
             </div>
-            
         </div>
     );
 }

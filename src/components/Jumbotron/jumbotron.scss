@@ -149,3 +149,50 @@ body.header-invisible {
         }
     }
 }
+
+.about-text-primary-container {
+    position: absolute; 
+    height: 40%; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.4); 
+    
+    padding: 3px 3px; 
+    color: #fff;
+    z-index: 1; 
+    margin-bottom: 20%;
+}
+
+.about-text-width-container {
+    position: absolute;
+    height: 100%;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    transform: translateX(0%) translateY(-50%);
+}
+
+.about-text-header {
+    height: 10%; 
+    color: white; 
+    font-weight: bold;
+    font-size: 7vh;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 2px;
+    span {
+        color: $melon;
+    }
+}
+
+.about-text-body {
+    height: 90%; 
+    color: white; 
+    font-size: 4vh;
+    text-align: left; 
+    margin-top: 4%;
+    span {
+        color: $melon;
+    }
+}
