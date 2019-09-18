@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import "./jumbotron.scss";
 // import {Link} from "react-router"
 import ArmadaLogoGreen from '../../../content/assets/armada_round_logo_green.png';
+import Countdown, { zeroPad } from 'react-countdown-now';
 
 
 var smoothScroll = {
@@ -114,6 +115,8 @@ class Jumbotron extends React.Component {
     let intro_text_body = "THS Armada arranges Scandinavia's largest career fair at KTH Royal Institute of Technology. Every year, more than 12,000 of Sweden's top engineering and architectural students flock to visit the fair to meet their future employers. Each year ";
     let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact";
 
+    
+
     /*
      * The date here is hardcoded because there is no api that gives the dates as answer.
      **/
@@ -121,18 +124,24 @@ class Jumbotron extends React.Component {
         <div id={"header"}>
             <div className={header_class}>
                 {video_or_image}
-                {header_class === "header-home" ? 
+            </div>
+            {header_class === "header-home" ? 
                 <div className='about-text-primary-container'>
                     <div className='about-text-width-container'>
                         <p className='about-text-header' >
-                            {intro_text_header}<span>{intro_text_header_green}</span>
+                            {intro_text_header}<span>{intro_text_header_green}<img src={ArmadaLogoGreen} id="armada-text-logo" />?</span>
                         </p>
                         <p className='about-text-body'>
                             {intro_text_body}<span>{intro_text_body_green}</span>
                         </p>
                     </div>
                 </div> : null}
-            </div>
+                <div className="countdown-container">
+                    <div className="countdown-width-container">
+                        <Countdown date={new Date('September 19, 2019 23:24:40')} renderer={props => <p1 id="countdown-numbers">{zeroPad(props.days, 2)} {zeroPad(props.hours, 2)} {zeroPad(props.minutes, 2)} {zeroPad(props.seconds, 2)}</p1>}/>
+                    </div>
+                </div>
+                
         </div>
     );
 }
