@@ -115,7 +115,29 @@ class Jumbotron extends React.Component {
     let intro_text_body = "THS Armada arranges Scandinavia's largest career fair at KTH Royal Institute of Technology. Every year, more than 12,000 of Sweden's top engineering and architectural students flock to visit the fair to meet their future employers. Each year ";
     let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact";
 
-    
+    const countDownRenderer = ({ days, hours, minutes, seconds }) => {
+        
+        return (
+            <div className="countDownRow">
+                <div className="countDownColumn">
+                    <p id="countdown-numbers">{zeroPad(days, 2)}</p>
+                    <p id="timeUnit">DAYS</p>
+                </div>
+                <div className="countDownColumn">
+                    <p id="countdown-numbers">{zeroPad(hours, 2)}</p>
+                    <p id='timeUnit'>HOURS</p>
+                </div>
+                <div className="countDownColumn">
+                    <p id="countdown-numbers">{zeroPad(minutes, 2)}</p>
+                    <p id='timeUnit'>MINUTES</p>
+                </div>
+                <div className="countDownColumn">
+                    <p id="countdown-numbers">{zeroPad(seconds, 2)}</p>
+                    <p id='timeUnit'>SECONDS</p>
+                </div>
+            </div>
+        );
+    };
 
     /*
      * The date here is hardcoded because there is no api that gives the dates as answer.
@@ -138,7 +160,9 @@ class Jumbotron extends React.Component {
                 </div> : null}
                 <div className="countdown-container">
                     <div className="countdown-width-container">
-                        <Countdown date={new Date('September 19, 2019 23:24:40')} renderer={props => <p1 id="countdown-numbers">{zeroPad(props.days, 2)} {zeroPad(props.hours, 2)} {zeroPad(props.minutes, 2)} {zeroPad(props.seconds, 2)}</p1>}/>
+                        <Countdown date={new Date('September 23, 2019 23:24:40')} renderer={countDownRenderer}/>
+                        <hr color='#fff' style={{border: '3px solid white', marginTop: 0, marginLeft: '-10%', marginRight: '-10%'}}></hr>
+                        <p className='about-text-body'> 19th-20th Nov. Nymble, KTH</p>
                     </div>
                 </div>
                 
