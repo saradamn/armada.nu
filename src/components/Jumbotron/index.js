@@ -104,16 +104,16 @@ class Jumbotron extends React.Component {
     }
 
     render() {
+    const DATE_OF_CAREER_FAIR = new Date('November 18, 2019 08:00:00');
     let image = this.props.image ? ( <img alt="" src={this.props.image}/> ) : null;
     let video = this.props.video ? (<video autoPlay="true" loop muted>
             <source src={this.props.video} type="video/mp4"/> </video>) : null;
-
     let video_or_image = video ? video : image;
     let header_class = video ? "header-home" : "header-image";
     let intro_text_header = "WHAT IS ";
     let intro_text_header_green = "THS ARMADA";
     let intro_text_body = "THS Armada arranges Scandinavia's largest career fair at KTH Royal Institute of Technology. Every year, more than 12,000 of Sweden's top engineering and architectural students flock to visit the fair to meet their future employers. Each year ";
-    let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact";
+    let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact.";
 
     const countDownRenderer = ({ days, hours, minutes, seconds }) => {
         
@@ -135,6 +135,8 @@ class Jumbotron extends React.Component {
                     <p id="countdown-numbers">{zeroPad(seconds, 2)}</p>
                     <p id='timeUnit'>SECONDS</p>
                 </div>
+                
+                
             </div>
         );
     };
@@ -144,9 +146,7 @@ class Jumbotron extends React.Component {
      **/
     return (
         <div id={"header"}>
-            <div className={header_class}>
-                {video_or_image}
-            </div>
+            
             {header_class === "header-home" ? 
                 <div className='about-text-primary-container'>
                     <div className='about-text-width-container'>
@@ -157,15 +157,24 @@ class Jumbotron extends React.Component {
                             {intro_text_body}<span>{intro_text_body_green}</span>
                         </p>
                     </div>
-                </div> : null}
+                </div> : 
+                <div className="logo-container fixed">
+                <img src={require('../../../content/assets/images/header-images/logo.png')} />
+                
+                </div>}
                 <div className="countdown-container">
                     <div className="countdown-width-container">
-                        <Countdown date={new Date('September 23, 2019 23:24:40')} renderer={countDownRenderer}/>
-                        <hr color='#fff' style={{border: '3px solid white', marginTop: 0, marginLeft: '-10%', marginRight: '-10%'}}></hr>
-                        <p className='about-text-body'> 19th-20th Nov. Nymble, KTH</p>
+                        <Countdown date={DATE_OF_CAREER_FAIR} renderer={countDownRenderer}/>
+                        <div className="terre">
+                            <hr color='#fff'></hr>
+                            <p ><span id="date-left">19th-20th Nov.</span> <span id="location-right">Nymble, KTH</span></p>
+                        </div>
                     </div>
                 </div>
-                
+                <div className={header_class}>
+                    {video_or_image}
+                    {/* {image} */}
+                </div>
         </div>
     );
 }
