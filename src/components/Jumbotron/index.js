@@ -114,7 +114,7 @@ class Jumbotron extends React.Component {
     let intro_text_header_green = "THS ARMADA";
     let intro_text_body = "THS Armada arranges Scandinavia's largest career fair at KTH Royal Institute of Technology. Every year, more than 12,000 of Sweden's top engineering and architectural students flock to visit the fair to meet their future employers. Each year ";
     let intro_text_body_green = "we strive to exceed their expectations and to give both students and employees the best possible chance to interact.";
-
+    const showCountDown = (header_class !== "header-home" && window.innerWidth < 750) || header_class === "header-home";
     const countDownRenderer = ({ days, hours, minutes, seconds }) => {
         
         return (
@@ -160,8 +160,9 @@ class Jumbotron extends React.Component {
                 </div> : 
                 <div className="logo-container fixed">
                 <img src={require('../../../content/assets/images/header-images/logo.png')} />
-                
+                {showCountDown ? null : <p className="logo-date">THE FAIR 19-20 NOV 2019</p>}
                 </div>}
+                {showCountDown ? 
                 <div className="countdown-container">
                     <div className="countdown-width-container">
                         <Countdown date={DATE_OF_CAREER_FAIR} renderer={countDownRenderer}/>
@@ -170,10 +171,9 @@ class Jumbotron extends React.Component {
                             <p ><span id="date-left">19th-20th Nov.</span> <span id="location-right">Nymble, KTH</span></p>
                         </div>
                     </div>
-                </div>
+                </div> : null}
                 <div className={header_class}>
                     {video_or_image}
-                    {/* {image} */}
                 </div>
         </div>
     );
